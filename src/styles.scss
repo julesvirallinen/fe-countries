@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@1,1000&family=Trispace:wght@300&display=swap');
+//@import 'responsive.scss';
+
+
+$primaryFont: 'Nunito', sans-serif;
+$secondaryFont: 'Trispace', sans-serif;
+
+$default: #61dafb;
+$light: whitesmoke;
+$dark: #171717;
+$gray: darkgray;
+$darkgray: rgb(85, 85, 87);
+$pink: #e3127e;
+$orange: rgb(255, 119, 0);
+
+$primaryBorder: 2px solid;
+$secondaryBorder: 1px solid;
+
+
+* {
+  font-family: $primaryFont;
+  transition: all 0.8s ease-out;
+  margin:0;
+}
+[data-theme="light"] *{
+  background-color: $light;
+  transition:all 0.8s ease-out;
+}
+[data-theme="light"] .theme-wrapper{
+  background-color: $light;
+}
+.theme-wrapper {
+  background-color: $dark;
+}
+.theme-select{
+  background-color: $dark;
+  position: absolute;
+  top: 14rem;
+  right: 2rem;
+  width: 6rem;
+  border-radius: 10px;
+  padding: 0 3px;
+  color: $gray;
+  border: $primaryBorder $gray;
+  outline:none;
+  cursor: pointer;
+}
+[data-theme="light"] .theme-select{
+  background-color: $light;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 12rem;
+  border: $primaryBorder $default;
+  color: $default;
+}
+[data-theme="pink"] header{
+  color: $pink;
+  border: $primaryBorder $pink;
+}
+[data-theme="orange"] header{
+  color: $orange;
+  border: $primaryBorder $orange;
+}
+.header {
+  text-align: end;
+  h1 {
+    margin: 1rem;
+    padding-right: 2rem;
+    font-size: 5.6rem;
+  }
+  p {
+    margin: 1rem;
+    padding-right: 2rem;
+    font-size: 1.25rem;
+    color: $gray;
+  }
+}
+h3 {
+  font-weight: 600;
+  font-size: inherit;
+}
+svg {
+  width: 16rem; 
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 48rem;
+  color: $gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.centered {
+  justify-content: center;
+}
+button:not(.country-btn) {
+  font-size: 1rem;
+  font-weight: 900;
+}
+.btn {
+  background-color: $dark;
+  color: $gray;
+  border: $primaryBorder $gray;
+  width: 20rem;
+  padding: 1rem 4rem;
+  border-radius: 10px;
+  max-height: 4rem;
+  &:hover {
+    cursor: pointer;
+    color: $default;
+    border: $primaryBorder $default;
+  }
+}
+[data-theme='light'] .btn{
+  background-color: $light;
+}
+[data-theme='pink'] .btn:hover{
+  color: $pink;
+  border: $primaryBorder $pink;
+}
+[data-theme="orange"] .btn:hover{
+  color: $orange;
+  border: $primaryBorder $orange;
+}
+#active {
+  color: $default;
+  border: $primaryBorder $default;
+}
+[data-theme='pink'] #active{
+  color: $pink;
+  border: $primaryBorder $pink;
+}
+[data-theme="orange"] #active{
+  color: $orange;
+  border: $primaryBorder $orange;
+}
+.continents {
+  border-right: $secondaryBorder $default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: inherit;
+}
+[data-theme='pink'] .continents{
+  border-right: $secondaryBorder $pink;
+}
+[data-theme="orange"] .continents{
+  border-right: $secondaryBorder $orange;
+}
+.continents.collapsed {
+  width: 0;
+  opacity: 0;
+  transform:scaleX(0);
+  transform: translate(0px, -5px);
+  transition: 0.6s ease-out;
+  border-right: none;
+}
+.continents.expanded {
+  opacity: 1;
+  width: auto;
+  transform:scaleX(1); 
+  transition: 0.8s ease-out;
+  max-width: 100%;
+  padding: 0 8rem;
+}
+.countries {
+  max-height: 100%;
+  overflow-y: scroll;
+  width: inherit;
+  margin-right: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.table {
+  margin: 4rem 0;
+  width: 48rem;
+}
+
+.country-btn-group {
+  padding: 0;
+  border-left: $primaryBorder $default;
+  border-bottom:$primaryBorder $default;
+  border-bottom-left-radius: 10px;
+}
+[data-theme='pink'] .country-btn-group{
+  border-bottom:$primaryBorder $pink;
+  border-left:$primaryBorder $pink;
+}
+[data-theme="orange"] .country-btn-group{
+  border-bottom:$primaryBorder $orange;
+  border-left:$primaryBorder $orange;
+}
+.first-char {
+  font-size: 4rem;
+  color: $default;
+  border-left: $primaryBorder $dark;
+  border-top: $primaryBorder $dark;
+  border-top-left-radius: 10px;
+  padding-left: 1rem;
+  margin: 0;
+  &:hover {
+    border-left: $primaryBorder $default;
+    border-top: $primaryBorder $default;
+    border-top-left-radius: 10px;
+    background-color: $default;
+    color: $dark;
+  }
+}
+[data-theme="light"] .first-char{
+  border-left: $primaryBorder $light;
+  border-top: $primaryBorder $light;
+}
+[data-theme='pink'] .first-char{
+  color: $pink;
+}
+[data-theme='orange'] .first-char{
+  color: $orange;
+}
+[data-theme='pink'] .first-char:hover{
+  border-top:$primaryBorder $pink;
+  border-left:$primaryBorder $pink;
+  background-color: $pink;
+  color: $dark;
+}
+[data-theme='orange'] .first-char:hover{
+  border-top:$primaryBorder $orange;
+  border-left:$primaryBorder $orange;
+  background-color: $orange;
+  color: $dark;
+}
+[data-theme='light'] .first-char:hover{
+  border-top:$primaryBorder $default;
+  border-left:$primaryBorder $default;
+  background-color: $default;
+  color: $orange;
+}
+.country-btn {
+  color: darkgray;
+  text-align: left;
+  padding: 6px;
+  font-size: 1rem;
+  font-family: $secondaryFont;
+  letter-spacing: 0.4rem;
+  &:hover {
+    cursor: pointer;
+    background-color: $default;
+    color: $dark;
+  }
+}
+[data-theme='pink'] .country-btn:hover{
+  background-color: $pink;
+}
+[data-theme='orange'] .country-btn:hover{
+  background-color: $orange;
+}
+#last-child{
+  border-bottom-left-radius: 8px;
+}
+
+#country-details{
+  color: darkgrey;
+  padding-left: 1rem;
+  font-weight: bolder;
+  font-size: 0.75rem;
+  div {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-family: $secondaryFont;
+    border-bottom: $secondaryBorder $darkgray;
+    color:  $darkgray;
+    p {
+      margin: 0 0 0 1rem;
+      letter-spacing: 0.4rem;
+    }
+  }
+}
+
+.details {
+  overflow:hidden;
+  transition:height 0.8s ease-out;
+  transform-origin: top;
+  max-height: 0px;
+}
+.details.collapsed {
+  height: 0;
+  opacity: 0;
+  transform:scaleY(0);
+  transform: translate(0px, -5px);
+  transition: 0.6s ease-out;
+  margin-bottom: 0;
+}
+.details.expanded {
+  opacity: 1;
+  height: auto;
+  transform:scaleY(1); 
+  transition: 0.8s ease-out;
+  max-height: 100%;
+  margin-bottom: 1rem;
+}
+
+//scrollbar:
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $darkgray;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gray;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+/*::-webkit-scrollbar-thumb:hover {
+  background: $default;
+}
+[data-theme="pink"] ::-webkit-scrollbar-thumb:hover{
+  background: #e3127e;
+}
+[data-theme="orange"] ::-webkit-scrollbar-thumb:hover{
+  background: $orange;
+}*/
+
+@media only screen and (max-width: 440px) {
+  #root{
+    width:590px;
+  }
+  header {
+    height: 10rem;
+    border-bottom: $primaryBorder $default;
+  }
+  .header {
+    h1 {
+      font-size: 3rem;
+      padding:0;
+    }
+    p{
+      font-size: 1rem;
+      padding: 0;
+    }
+  }
+  svg {
+    height: 100%;
+    max-width: 12rem;
+  }
+  .theme-select {
+    top: 12rem;
+    left: 30rem;
+    z-index: 1;
+  }
+  .container {
+    height: 70rem;
+  }
+  #centered {
+    flex-direction: column;
+  }
+  .continents {
+    border-right: none;
+    margin-top: 4rem;
+  }
+  #resp-continents{
+    border-bottom: $primaryBorder $default;
+    align-items: center;
+    width: 100%;
+    min-height: auto;
+    margin-top: 0;
+    padding:0;
+    .btn{
+      font-weight: 900;
+      font-size: 1rem;
+      text-align: center;
+      &:focus {
+        outline: none;
+        border: $primaryBorder $default;
+        color:$default;
+      }
+    }
+  }
+  [data-theme="orange"] #resp-continents.continents{
+    border-bottom: $primaryBorder $orange;
+  }
+  [data-theme="pink"] #resp-continents.continents{
+    border-bottom: $primaryBorder $pink;
+  }
+  .countries-wrapper {
+    padding: 0;
+  }
+  .countries {
+    height: 200rem;
+  }
+  .table {
+    max-width: 30rem;
+    margin: 2rem 0;
+  }
+  #country-details {
+    font-size: 1rem;
+    div{
+      border-bottom: $secondaryBorder rgba(176, 180, 195, 0.706);
+      color:  rgba(176, 180, 195, 0.706);
+    }
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+
+@media only screen and (min-width: 441px) and (max-width: 950px){
+  header {
+    height: 4rem;
+  }
+  .header {
+    h1 {
+      font-size: 1.2rem;
+      padding: 0;
+      margin:0.5rem;
+    }
+    p{
+      font-size: 0.6rem;
+      padding:0;
+      margin:0.5rem;
+    }
+  }
+  svg {
+    width: 5rem;
+  }
+  .container {
+    max-height: 20rem;
+  }
+  .theme-select{
+    top: 5rem;
+    right: 1.5rem;
+    width: 5rem;
+    z-index: 2;
+  }
+  #centered {
+    flex-direction: column;
+  }
+
+  .btn {
+    width:11rem;
+    border: $secondaryBorder $gray;
+    padding: 0.8rem 2rem;
+    &:focus{
+      border: $secondaryBorder $default;
+    }
+  }
+  button:not(.country-btn) {
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+  .continents {
+    max-height:18rem;
+  }
+  .continents.expanded {
+    padding: 1rem 2rem;
+  }
+  .countries {
+    max-height: 20rem;
+  }
+  .country-btn-group {
+    border-left: $secondaryBorder $default;
+    border-bottom: $secondaryBorder $default;  
+  }
+  [data-theme="pink"] .country-btn-group {
+    border-left: $secondaryBorder $pink;
+    border-bottom: $secondaryBorder $pink; 
+  }
+  [data-theme="orange"] .country-btn-group {
+    border-left: $secondaryBorder $orange;
+    border-bottom: $secondaryBorder $orange; 
+  }
+  .first-char {
+    font-size: 2rem;
+    padding-left:0.5rem
+  }
+  .country-btn{
+    font-size: 0.6rem;
+    padding: 0.4rem;
+  }
+  #country-details {
+    font-size: 0.6rem;
+    div {
+      padding: 0.4rem 0;
+    }
+  }
+  .table {
+    max-width: 28rem;
+    margin: 2rem 0;
+  }
+}
+
+@media only screen and (min-width: 951px) and (max-width: 1250px){
+  header {
+    height: 8rem;
+    .header{
+      h1{
+        font-size: 4rem;
+        margin-top:1rem;
+      }
+      p{
+        font-size: 1rem;
+        margin:0;
+      }
+    }
+  }
+  .container {
+    max-height:100%;
+  }
+  .continents.expanded {
+    padding: 0 4rem;
+    height: 100%;
+    .btn {
+      width: 14rem;
+    }
+  }
+ 
+}
+@media only screen and (min-width: 1000px) {
+  
+}
+
+
