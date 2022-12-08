@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
 
-function App() {
+import CountriesProvider from './contexts/countries';
+import Header from './components/header';
+import Layout from './components/layout';
+
+import './styles.scss';
+import ThemeProvider from './contexts/theme';
+import Theme from './components/theme';
+
+const App:React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <ThemeProvider>
+      <CountriesProvider>
+        <Theme>
+            <main>
+                <Header />
+                <Layout />    
+            </main>
+        </Theme>
+      </CountriesProvider>
+    </ThemeProvider>  
+  )
+};
 
 export default App;
